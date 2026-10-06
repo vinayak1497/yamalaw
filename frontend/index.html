@@ -3,14 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YamaLaw — Citizen Legal Access & Case Continuity Platform</title>
-  <meta name="description" content="YamaLaw helps citizens navigate legal processes, organize documents and evidence, find legal assistance, and track their case journey." />
-  <meta property="og:title" content="YamaLaw — Understand your legal problem. Know your next step." />
-  <meta property="og:description" content="Legal awareness, documentation, evidence, legal aid and case tracking — one continuity platform." />
+  <title>YamaLaw — Citizen Legal Access &amp; Case Continuity Platform</title>
+  <meta name="description" content="Understand your legal problem, know your next step, prepare documents and evidence, find legal aid, and track your matter from intake to resolution." />
+  <meta property="og:title" content="YamaLaw — Legal Clarity for Every Citizen" />
+  <meta property="og:description" content="Describe your problem, build a legal journey, preserve evidence, find legal aid and track your matter — one free, multilingual platform." />
   <meta property="og:image" content="/logo.png" />
-  <meta name="theme-color" content="#11294d" />
+  <meta name="theme-color" content="#1e2a44" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0e14" media="(prefers-color-scheme: dark)" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+    rel="stylesheet"
+  />
+  <script>
+    // Apply the stored theme before first paint to avoid a flash.
+    (function () {
+      try {
+        var stored = localStorage.getItem('yamalaw_theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <div id="root"></div>
