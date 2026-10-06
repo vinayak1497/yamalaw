@@ -216,7 +216,7 @@ img { max-width: 100%; }
 }
 .logo-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
-.desktop-nav { display: flex; gap: 0.15rem; margin-left: 0.5rem; }
+.desktop-nav { display: flex; gap: 0.15rem; margin-left: 0.5rem; flex-wrap: nowrap; min-width: 0; overflow: hidden; }
 .desktop-nav a {
   color: var(--text-secondary);
   font-size: 0.925rem;
@@ -224,6 +224,7 @@ img { max-width: 100%; }
   padding: 0.5rem 0.7rem;
   border-radius: var(--r-sm);
   position: relative;
+  white-space: nowrap;
   transition: color 0.2s ease;
 }
 .desktop-nav a:hover { color: var(--text-primary); }
@@ -907,11 +908,18 @@ table.tbl { width: 100%; border-collapse: collapse; background: var(--bg-surface
 /* ---------- 11. Responsive ---------- */
 @media (max-width: 1024px) {
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero { gap: 2.5rem; }
+}
+
+@media (max-width: 1180px) {
+  /* The authenticated nav carries more links than the marketing nav; below this
+     width it stops fitting beside the CTAs, so hand it to the drawer. */
+  .desktop-nav, .header-cta { display: none; }
+  .hamburger { display: inline-flex; }
 }
 
 @media (max-width: 900px) {
-  .desktop-nav, .header-cta, .lang-picker { display: none; }
-  .hamburger { display: inline-flex; }
+  .lang-picker { display: none; }
   .hero { grid-template-columns: 1fr; gap: 2.5rem; }
   .hero-visual { display: none; }
   .quick-grid { grid-template-columns: 1fr; }
