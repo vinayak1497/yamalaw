@@ -1,0 +1,16 @@
+{
+  "name": "yamalaw",
+  "version": "1.0.0",
+  "private": true,
+  "description": "YamaLaw — Citizen Legal Access & Case Continuity Platform",
+  "scripts": {
+    "build": "npm run build --prefix frontend",
+    "install:frontend": "npm ci --prefix frontend",
+    "dev": "npm run dev --prefix frontend",
+    "test": "npm run test --prefix frontend",
+    "build:backend": "npm install --prefix backend"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

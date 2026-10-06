@@ -20,6 +20,10 @@ const config = {
   JWT_SECRET: process.env.JWT_SECRET || 'yamalaw-dev-secret-change-in-production-min-32-chars!!',
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',
 
+  SUPABASE_URL: process.env.SUPABASE_URL || 'https://upornmirfmznmxbzigkm.supabase.co',
+  SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwb3JubWlyZm16bm14YnppZ2ttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyNjY1MDgsImV4cCI6MjEwNjg0MjUwOH0.0o4NBnGE66mTBtE0a1MxAVr42aJ8xZ8sSYdMgNecYL0',
+  SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
+
   DB_PATH: process.env.DB_PATH || path.join(__dirname, '..', 'data', 'yamalaw.sqlite'),
   DATABASE_URL: process.env.DATABASE_URL || '',
 
