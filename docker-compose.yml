@@ -1,0 +1,75 @@
+services:
+  yamalaw-backend:
+    build: ./backend
+    container_name: yamalaw-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - APP_NAME=YamaLaw
+      - APP_ENV=production
+      - PORT=8080
+      - DEMO_MODE=${DEMO_MODE:-true}
+      - JWT_SECRET=${JWT_SECRET:-yamalaw-change-me-in-production-min-32-chars}
+      - AI_ENABLED=${AI_ENABLED:-false}
+      - OLLAMA_ENABLED=${OLLAMA_ENABLED:-false}
+      - OLLAMA_BASE_URL=http://yamalaw-ollama:11434
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-qwen2.5:7b}
+      - STORAGE_PROVIDER=${STORAGE_PROVIDER:-local}
+      - TRANSLATION_ENABLED=${TRANSLATION_ENABLED:-true}
+      - EMAIL_ENABLED=${EMAIL_ENABLED:-false}
+      - NOTIFICATIONS_ENABLED=true
+    volumes:
+      - yamalaw_data:/app/data
+      - yamalaw_uploads:/app/uploads
+    restart: unless-stopped
+
+  yamalaw-frontend:
+    build: ./frontend
+    container_name: yamalaw-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - yamalaw-backend
+    restart: unless-stopped
+
+  # Optional: PostgreSQL (only needed if you set DATABASE_URL; default is SQLite file)
+  yamalaw-db:
+    image: postgres:15-alpine
+    container_name: yamalaw-db
+    environment:
+      POSTGRES_USER: ${DB_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-yamalaw}
+    volumes:
+      - yamalaw_pg:/var/lib/postgresql/data
+    profiles: ["postgres"]
+    restart: unless-stopped
+
+  # Optional: MinIO object storage (MINIO_ENABLED=true)
+  yamalaw-minio:
+    image: minio/minio:latest
+    container_name: yamalaw-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin123}
+    volumes:
+      - yamalaw_minio:/data
+    profiles: ["minio"]
+    restart: unless-stopped
+
+  # Optional: local AI (OLLAMA_ENABLED=true)
+  yamalaw-ollama:
+    image: ollama/ollama:latest
+    container_name: yamalaw-ollama
+    volumes:
+      - yamalaw_ollama:/root/.ollama
+    profiles: ["ollama"]
+    restart: unless-stopped
+
+volumes:
+  yamalaw_data:
+  yamalaw_uploads:
+  yamalaw_pg:
+  yamalaw_minio:
+  yamalaw_ollama:

@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: yamalaw-backend
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node src/index.js
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: APP_NAME
+        value: YamaLaw
+      - key: APP_ENV
+        value: production
+      - key: DEMO_MODE
+        value: "true"
+      - key: AI_ENABLED
+        value: "false"
+      - key: OLLAMA_ENABLED
+        value: "false"
+      - key: STORAGE_PROVIDER
+        value: local
+      - key: TRANSLATION_ENABLED
+        value: "true"
+      - key: EMAIL_ENABLED
+        value: "false"
+      - key: NOTIFICATIONS_ENABLED
+        value: "true"
+      # --- secrets / deployment-specific (set via Render dashboard or CLI, never committed) ---
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: FRONTEND_URL
+        sync: false

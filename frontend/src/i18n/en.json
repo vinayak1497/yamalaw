@@ -1,0 +1,22 @@
+{
+  "appName": "YamaLaw",
+  "tagline": "Understand your legal problem. Know your next step.",
+  "subline": "YamaLaw helps citizens navigate legal processes, organize documents and evidence, find legal assistance, and track their case journey.",
+  "nav": { "dashboard": "Dashboard", "issues": "My Legal Issues", "cases": "My Cases", "research": "Legal Research", "aid": "Legal Aid", "hearings": "Hearings", "notifications": "Notifications", "profile": "Profile", "logout": "Sign out", "login": "Sign in", "signup": "Create account" },
+  "common": { "loading": "Loading…", "save": "Save", "cancel": "Cancel", "submit": "Submit", "upload": "Upload", "download": "Download", "verify": "Verify integrity", "next": "Next", "back": "Back", "demo": "DEMO", "language": "Language" },
+  "landing": {
+    "badge": "Citizen Legal Access & Case Continuity Platform",
+    "cta1": "Start your legal journey",
+    "cta2": "Explore demo accounts",
+    "flow": "Problem → Understand → Prepare → Connect → Track → Resolve",
+    "disclaimer": "YamaLaw provides legal information and workflow support — not legal advice. Always consult a qualified lawyer for advice about your matter."
+  },
+  "auth": { "welcome": "Welcome to YamaLaw", "noAccount": "New to YamaLaw?", "haveAccount": "Already have an account?" },
+  "dashboard": { "active": "My active matters", "readiness": "Readiness", "nextTask": "Next task", "stage": "Stage", "lawyer": "Lawyer", "deadline": "Deadline" },
+  "journey": { "title": "Legal Journey", "nextStep": "Next step", "checklist": "Document checklist" },
+  "readiness": { "title": "Case Readiness", "overall": "Overall", "nextActions": "Next required actions" },
+  "evidence": { "title": "Evidence", "verified": "VERIFIED", "stored": "STORED", "modified": "MODIFIED", "chain": "Chain of custody" },
+  "aid": { "title": "Legal Aid", "check": "Check eligibility", "disclaimer": "Demo eligibility rules. Final eligibility is decided by the District Legal Services Authority (DLSA) / NALSA norms." },
+  "research": { "title": "Legal Research", "searchPh": "Search legal authorities, e.g. delayed salary…", "noSource": "Source not found.", "attach": "Attach to case" },
+  "terms": { "jurisdiction": "Which court or authority is allowed to handle your matter." }
+}

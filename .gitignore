@@ -1,0 +1,13 @@
+node_modules/
+dist/
+backend/data/*.sqlite*
+backend/data/*.sqlite-*
+backend/uploads/incoming/
+backend/uploads/*
+!backend/uploads/.gitkeep
+.env
+.env.production
+*.log
+.vercel/
+supabase/.temp/
+supabase/.branches/
