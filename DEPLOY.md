@@ -13,8 +13,8 @@ GitHub Actions cron (every 10 min) ──> /api/health  (keeps Render warm + Sup
 
 | Layer | Where | Project/service |
 |---|---|---|
-| Frontend | Vercel | `yamalaw` → `https://<name>.vercel.app` |
-| Backend | Render | `yamalaw-backend` → `https://yamalaw-backend.onrender.com` (URL from dashboard/CLI) |
+| Frontend | Vercel | `yamalaw` → `https://yamalaw.vercel.app` |
+| Backend | Render | `yamalaw-backend` → `https://yamalaw-backend.onrender.com` |
 | Database | Supabase | `yamalaw` (`upornmirfmznmxbzigkm`), region `ap-south-1` |
 | Keep-alive | GitHub Actions | `.github/workflows/keep-alive.yml`, secret `RENDER_BACKEND_URL` |
 
